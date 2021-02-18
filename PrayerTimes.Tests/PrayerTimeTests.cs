@@ -17,7 +17,7 @@ namespace prayertimescore.PrayerTimes.Tests
             var latitude = 51.5073509;
             var longitude = -0.1277583;
             var dateTime = new DateTime(2021, 2, 18);
-            var calculator = new PrayerTimesCalculator(51.5073509, -0.1277583)
+            var calculator = new PrayerTimesCalculator(latitude, longitude)
             {
                 CalculationMethod = CalculationMethods.Jafari,
                 AsrJurusticMethod = AsrJuristicMethods.Shafii
