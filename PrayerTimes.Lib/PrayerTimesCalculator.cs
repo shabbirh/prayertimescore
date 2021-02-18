@@ -72,15 +72,14 @@ namespace prayertimescore.PrayerTimes.Lib
         /// Returns the prayer times for a given date , the date format is specified as individual settings.
         /// </summary>
         /// <param name="date">Date time representing the date for which times should be calculated.</param>        
-        /// <param name="timeZone">Time zone to use when calculating times. If omitted, time zone from date is used.</param>
+        /// <param name="timeZone">Required, represents the timezone</param>
         /// <returns>
         /// Times structure containing the Salaah times.
         /// </returns>
-        public Times GetPrayerTimes(DateTimeOffset date, int? timeZone = null)
+        public Times GetPrayerTimes(DateTimeOffset date, double timeZone)
         {
-            timeZone = EffectiveTimeZone(date, timeZone);
             var jDate = JulianDate(date.Year, date.Month, date.Day) - _longitude / (15 * 24);
-            var times = ComputeDayTimes(jDate, timeZone.Value);
+            var times = ComputeDayTimes(jDate, timeZone);
             times.Date = date;
             return times;
         }
@@ -177,7 +176,8 @@ namespace prayertimescore.PrayerTimes.Lib
 
 
         // compute prayer times at given julian date
-        private Times ComputeDayTimes(double jDate, int timeZone)
+
+        private Times ComputeDayTimes(double jDate, double timeZone)
         {
             double[] times = new double[] { 5, 6, 12, 13, 18, 18, 18 }; //default times
 
@@ -187,10 +187,21 @@ namespace prayertimescore.PrayerTimes.Lib
             times = this.AdjustTimes(timeZone, times);
             return this.AdjustTimesFormat(times);
         }
+        // private Times ComputeDayTimes(double jDate, int timeZone)
+        // {
+        //     double[] times = new double[] { 5, 6, 12, 13, 18, 18, 18 }; //default times
+
+        //     for (var i = 1; i <= NumIterations; i++)
+        //         times = this.ComputeTimes(jDate, times);
+
+        //     times = this.AdjustTimes(timeZone, times);
+        //     return this.AdjustTimesFormat(times);
+        // }
 
 
         // adjust times in a prayer time array
-        private double[] AdjustTimes(int timeZone, double[] times)
+
+        private double[] AdjustTimes(double timeZone, double[] times)
         {
             for (var i = 0; i < 7; i++)
             {
@@ -214,6 +225,31 @@ namespace prayertimescore.PrayerTimes.Lib
             }
             return times;
         }
+
+        // private double[] AdjustTimes(int timeZone, double[] times)
+        // {
+        //     for (var i = 0; i < 7; i++)
+        //     {
+        //         times[i] += timeZone - this._longitude / 15;
+        //     }
+        //     times[2] += dhuhrMinutes / 60; //Dhuhr
+
+        //     if (this._methodParams[this.CalculationMethod][1] == 1) // Maghrib
+        //     {
+        //         times[5] = times[4] + this._methodParams[this.CalculationMethod][2] / 60;
+        //     }
+
+        //     if (this._methodParams[this.CalculationMethod][3] == 1) // Isha
+        //     {
+        //         times[6] = times[5] + this._methodParams[this.CalculationMethod][4] / 60;
+        //     }
+
+        //     if (this.HighLatitudeAdjustmentMethod != HighLatitudeAdjustmentMethods.None)
+        //     {
+        //         times = this.AdjustHighLatTimes(times);
+        //     }
+        //     return times;
+        // }
 
 
         // convert times array to given time format
@@ -303,10 +339,17 @@ namespace prayertimescore.PrayerTimes.Lib
         private int EffectiveTimeZone(DateTimeOffset date, int? timeZone)
         {
             if (timeZone == null)
+            {
                 timeZone = date.Offset.Hours;
+            }
 
-            int dstOffset = 1;
-            if (date.LocalDateTime.IsDaylightSavingTime())
+            int dstOffset;
+            if (date.DateTime.IsDaylightSavingTime())
+            {
+                // if the date is a daylight saving time date, then add the offset to 1
+                dstOffset = 1;
+            }
+            else
             {
                 dstOffset = 0;
             }
