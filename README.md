@@ -1,6 +1,6 @@
 In His Name, the Most High
 
-# Prayer Times API and Library (.NET Core)
+# Prayer Times Library (dotnet core)
 
 ## About This Project
 Port of the code from http://www.praytimes.org into .NET Core library.
