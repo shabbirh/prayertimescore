@@ -19,12 +19,6 @@ namespace prayertimescore.PrayerTimes.Tests
                 AsrJurusticMethod = AsrJuristicMethods.Hanafi
             };
 
-            // convert UTC time from the database to UK time
-            DateTime utcTime = DateTime.UtcNow;
-            var gmtTimeZone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
-            var gmtTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, gmtTimeZone);
-
-
             Times prayerTimes = calculator.GetPrayerTimes(DateTime.Now, 1);
 
 
