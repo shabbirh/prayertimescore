@@ -248,3 +248,8 @@ It should be noted that while every effort has been taken to ensure the veracity
 More details will be added as the project proceeds.
 
 
+## Credits
+
+The following repos have been very useful in getting this code working:
+- https://github.com/stankovski/prayer-times
+- https://github.com/mohamedmansour/prayer-times-extension 
