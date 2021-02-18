@@ -3,7 +3,7 @@ In His Name, the Most High
 # Prayer Times API and Library (.NET Core)
 
 ## About This Project
-Port of the code from http://www.praytimes.org into .NET Core packaged up as a Web API (though a NuGet package will at some point be available for those who want to use the calculation library in their applications.
+Port of the code from http://www.praytimes.org into .NET Core library.
 
 Muslims perform five prayers a day. Each prayer is given a certain prescribed time during which it must be performed. 
 This document briefly describes these times and explains how they can be calculated mathematically. 
