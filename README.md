@@ -4,7 +4,7 @@ In His Name, the Most High
 
 ## About This Project
 
-Port of the code from <http://www.praytimes.org> into dotnet core (version 5.x) library.
+Port of the code from <http://www.praytimes.org> into dotnet core library.
 
 Muslims perform five prayers a day. Each prayer is given a certain prescribed time during which it must be performed.
 This document briefly describes these times and explains how they can be calculated mathematically.
