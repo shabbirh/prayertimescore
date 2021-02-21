@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <!--<TargetFramework>netcoreapp3.1</TargetFramework>-->
+	  <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Shabbir Hassanally (and upstream/downstream contributors)</Authors>
     <Description>Port of the code from http://www.praytimes.org into dotnet library.
 
@@ -18,7 +19,9 @@ This library provides easy to use methods to calculate these times based on vari
     <Version>1.0.1</Version>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
     <PackageReference Include="NodaTime" Version="3.0.5" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\LICENSE">
