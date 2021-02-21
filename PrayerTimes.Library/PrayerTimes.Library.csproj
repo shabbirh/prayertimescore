@@ -11,12 +11,12 @@ This library provides easy to use methods to calculate these times based on vari
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/shabbirh/prayertimescore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/shabbirh/prayertimescore</RepositoryUrl>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>Modified library to be compatible with netstandard 2.0 (for use in Xamarin apps)</PackageReleaseNotes>
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <PackageTags>prayer, muslim, calculations, namaaz, salaat</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <FileVersion>1.0.1.0</FileVersion>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
