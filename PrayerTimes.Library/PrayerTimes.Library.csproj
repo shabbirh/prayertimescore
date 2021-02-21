@@ -1,8 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Authors>Shabbir Hassanally (and upstream/downstream contributors)</Authors>
+    <Description>Port of the code from http://www.praytimes.org into dotnet library.
+
+Muslims perform five prayers a day. Each prayer is given a certain prescribed time during which it must be performed. 
+
+This library provides easy to use methods to calculate these times based on various calculation methods, geolocation and such.  More details in our readme - https://github.com/shabbirh/prayertimescore/blob/master/README.md</Description>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/shabbirh/prayertimescore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/shabbirh/prayertimescore</RepositoryUrl>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <PackageTags>prayer, muslim, calculations, namaaz, salaat</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NodaTime" Version="3.0.5"/>
+    <PackageReference Include="NodaTime" Version="3.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 </Project>
