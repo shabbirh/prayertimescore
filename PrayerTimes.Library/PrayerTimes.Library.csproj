@@ -11,10 +11,11 @@ This library provides easy to use methods to calculate these times based on vari
     <PackageProjectUrl>https://github.com/shabbirh/prayertimescore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/shabbirh/prayertimescore</RepositoryUrl>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <PackageTags>prayer, muslim, calculations, namaaz, salaat</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <FileVersion>1.0.0.1</FileVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NodaTime" Version="3.0.5" />
