@@ -148,8 +148,6 @@ The following table shows several conventions currently in use in various countr
 |UOIOOF|Union of Islamic Organisations of France | 12°  | 12°  |Some Muslim communities in France and parts of Europe |
 |JAKIM|Department of Islamic Advancement, Malaysia (JAKIM) | 20°  | 18°  |Muslim communities in Malaysia |
 
-
-
 As an example, according the Shia Ithna Ashari, Leva Research Institute, Qum:
 
 ```csharp
