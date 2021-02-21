@@ -272,3 +272,4 @@ The following repos have been very useful in getting this code working:
 
 * <https://github.com/stankovski/prayer-times>
 * <https://github.com/mohamedmansour/prayer-times-extension>
+* <https://github.com/zulfahmi93/prayer-times/>
