@@ -3,7 +3,6 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="GeoTimeZone" Version="4.1.0"/>
-    <PackageReference Include="TimeZoneConverter" Version="3.4.0"/>
+    <PackageReference Include="NodaTime" Version="3.0.5"/>
   </ItemGroup>
 </Project>
