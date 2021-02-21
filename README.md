@@ -144,23 +144,16 @@ The following table shows several conventions currently in use in various countr
 |KARACHI|University of Islamic Sciences, Karachi | 18°  | 18°  |Pakistan, Afganistan, Bangladesh, India |
 |TEHRAN|Institute of Geophysics, University of Tehran | 17.7°  | 14°  (the Isha angle is not explicitly defined in the Tehran method)|Iran, Some Shia communities |
 |JAFARI|Shia Ithna Ashari, Leva Research Institute, Qum | 16°  | 14°  |Some Shia communities worldwide |
+|SINGAPURA|Majlis Ugama Islam Singapura | 20°  | 18°  |Muslim communities in Singapore |
+|UOIOOF|Union of Islamic Organisations of France | 12°  | 12°  |Some Muslim communities in France and parts of Europe |
+|JAKIM|Department of Islamic Advancement, Malaysia (JAKIM) | 20°  | 18°  |Muslim communities in Malaysia |
 
-The table below shows the default calculating parameters for each calculation method:
 
-|Method Code | Fajr Angle | Isha | Maghreb | Midnight |
-|-------|------------|------|---------|----------|
-| MWL | 18° | 17° | == Sunset | mid-Sunset to Sunrise |
-| ISNA | 15° | 15° | == Sunset | mid-Sunset to Sunrise |
-| EGYPT| 19.5° | 17.5° | == Sunset | mid-Sunset to Sunrise |
-| MAKKAH| 18.5° (was 19° before December 2008/Muharram 1430) | 90mins after Maghreb (120m during Ramadhan)| == Sunset | mid-Sunset to Sunrise |
-| KARACHI| 18° | 18° | == Sunset | mid-Sunset to Sunrise |
-| TEHRAN| 17.7° | 14°| 4.5° | mid-Sunset to Fajr |
-| JAFARI| 16° | 14° | 4° | mid-Sunset to Fajr |
 
-As an example, according the Muslim World League (MWL):
+As an example, according the Shia Ithna Ashari, Leva Research Institute, Qum:
 
 ```csharp
-Fajr = Dhuhr - T(18) and Isha = Dhuhr + T(17)
+Fajr = Dhuhr - T(16) and Isha = Dhuhr + T(14)
 ```
 
 ### Asr
@@ -259,6 +252,10 @@ The source code for the Library (nuget Package) will be available here on Github
 If you are going to use use this code commercially or privately, please at the very least let me know and be sure to follow the guidelines of the LGPL license for the original [praytimes.org](http://praytimes.org) code, and be sure to credit them and link to them - as well as this repository.
 
 I will be setting up a [Discord](https://discordapp.com/) channel, where discussions on the code and related matters can be had, and this will be linked to when appropriate.
+
+Thanks to the work done by [Zulfahmi Ahmad](https://github.com/zulfahmi93), this code has been significantly improved and the calculation methods for Singapore and Malaysia have been added.
+
+There are also many unit tests that can be used to verify calculations; as well as a Console App that can be used to display the times for prayer.
 
 ## Disclaimer
 
