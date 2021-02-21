@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
+using JetBrains.Annotations;
 using NodaTime;
 using PrayerTimes.Library.Enumerations;
 using PrayerTimes.Library.Exception;
