@@ -21,6 +21,7 @@ To determine the exact period for each prayer (and also for fasting), we need to
 | Imsak       |The time to stop eating when fasting (in Ramadhan), slightly before Fajr.|
 | Fajr       |At the actual break of dawn.|
 | Sunrise  |The time at which the first part of the Sun appears above the horizon.|
+| Dhuha  |The time at which the Sun fully appears above the horizon (i.e. the completion of Sunrise).|
 | Dhuhr   |When the Sun begins to decline after reaching its highest point in the sky.|
 | Asr    |The time when the length of any object's shadow reaches a factor (usually 1 or 2) of the length of the object itself plus the length of that object's shadow at noon.|
 | Sunset    |The time at which the Sun disappears below the horizon.|
