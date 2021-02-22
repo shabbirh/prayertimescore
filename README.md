@@ -3,6 +3,9 @@
 In His Name, the Most High
 
 ## About This Project
+[![NuGet](https://img.shields.io/nuget/v/PrayerTimes.Library.svg?style=flat)](https://www.nuget.org/packages/PrayerTimes.Library/)
+![dotnet](https://github.com/shabbirh/prayertimescore/actions/workflows/dotnet.yml/badge.svg)
+![codeql-analysis](https://github.com/shabbirh/prayertimescore/actions/workflows/codeql-analysis.yml/badge.svg)
 
 Port of the code from <http://www.praytimes.org> into dotnet core library.
 
