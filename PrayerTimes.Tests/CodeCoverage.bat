@@ -19,3 +19,6 @@ minicover uninstrument --workdir ../
 
 REM Print the console report
 minicover report --workdir ../ --threshold 70
+
+REM Generate the HTML report
+minicover htmlreport --workdir ../ --threshold 70
