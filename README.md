@@ -264,6 +264,8 @@ There are also many unit tests that can be used to verify calculations; as well 
 
 A set of calender conversion methods and classes has now been added (based of the excellent work by [Milad Shahabfar](https://github.com/shahabfar)'s Persia.NET-Core.  This work was brought into this library, since the [Persia.NET-Core library](https://github.com/shahabfar/Persia-.NET-Core) is purely dotnet core 5, and therefore cannot be used in Xamarin based projects (or projects that don't support dotnet core 5 and need dotnet standard 2+).
 
+A sample of how to use this can be found in the Console App Project.
+
 ## Disclaimer
 
 It should be noted that while every effort has been taken to ensure the veracity of the calculations provided by the library, and a great deal of testing has been placed (Unit Tests will be provided in the source code as it is released), this library is provided AS-IS, with no warrenty or claim that it is completley accurate and without flaws.
