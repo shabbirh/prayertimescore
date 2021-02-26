@@ -51,7 +51,10 @@ namespace PrayerTimes.Console
             LunarDate lunarDate = prayertimescore.PrayerTimes.Library.Calender.Calendar.ConvertToIslamic(when.ToDateTimeUtc().AddDays(LunarHijriOffset));
             DateTime gregorianDate = when.ToDateTimeUtc();
 
-            System.Console.WriteLine($"Prayer Times at [{geo.Latitude}, {geo.Longitude}, {geo.Altitude}] for {gregorianDate:D} (Solar: {solarDate.ToString("N")} / Lunar: {lunarDate.ToString("N")}):");
+            var solarDateString = $" {solarDate.ToString("english_day")} {solarDate.ToString("english_month")} {solarDate.ToString("english_year")}";
+            var lunarDateString = $" {lunarDate.ToString("english_day")} {lunarDate.ToString("english_month")} {lunarDate.ToString("english_year")}";
+
+            System.Console.WriteLine($"Prayer Times at [{geo.Latitude}, {geo.Longitude}, {geo.Altitude}] for {gregorianDate:D} (Solar: {solarDateString} / Lunar: {lunarDate.ToString("english_formatted")}):");
             System.Console.WriteLine($"Imsak: {GetPrayerTimeString(prayer.Imsak)}");
             System.Console.WriteLine($"Fajr: {GetPrayerTimeString(prayer.Fajr)}");
             System.Console.WriteLine($"Sunrise: {GetPrayerTimeString(prayer.Sunrise)}");
