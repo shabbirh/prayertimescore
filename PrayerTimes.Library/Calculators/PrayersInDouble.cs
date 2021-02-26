@@ -54,6 +54,5 @@ namespace PrayerTimes.Library.Calculators
         ///     Midnight time in floating point format.
         /// </summary>
         internal double Midnight { get; set; }
-
     }
 }

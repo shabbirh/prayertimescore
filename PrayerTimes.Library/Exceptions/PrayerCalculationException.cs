@@ -12,5 +12,13 @@ namespace PrayerTimes.Library.Exception
         ///     Error message.
         /// </param>
         public PrayerCalculationException(string message) : base(message) { }
+
+        public PrayerCalculationException()
+        {
+        }
+
+        public PrayerCalculationException(string message, System.Exception innerException) : base(message, innerException)
+        {
+        }
     }
 }
