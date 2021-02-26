@@ -155,6 +155,5 @@ namespace PrayerTimes.Library.Helpers
         {
             return RadianToDegree(Math.Atan(1 / cotangentValue));
         }
-
     }
 }

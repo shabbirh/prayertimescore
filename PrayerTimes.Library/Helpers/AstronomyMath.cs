@@ -56,7 +56,6 @@ namespace PrayerTimes.Library.Helpers
                 case HighLatitudeAdjustment.AngleBased:
                     nightFraction = 0.016666666666666667 * angle;
                     break;
-
                 default:
                     throw new ArgumentOutOfRangeException(nameof(method));
             }

@@ -83,7 +83,6 @@ namespace PrayerTimes.Library.Calculators
             return rounded;
         }
 
-
         /// <summary>
         ///     Generate current prayer time.
         /// </summary>
@@ -374,6 +373,7 @@ namespace PrayerTimes.Library.Calculators
             }
 
             // Compute fajr, sunrise, dhuha, Dhuhr, asr and sunset.
+            raw.Imsak = ComputeImsakTime(jd, settings.CalculationMethod.FajrParameter.Value, latitude);
             raw.Fajr = ComputeFajrTime(jd, settings.CalculationMethod.FajrParameter.Value, latitude);
             raw.Sunrise = ComputeSunriseTime(jd, latitude, altitude);
             raw.Dhuha = ComputeDhuhaTime(raw.Fajr, raw.Sunrise);
@@ -558,15 +558,15 @@ namespace PrayerTimes.Library.Calculators
         private static PrayersInDouble AdjustAllToTimeZone(PrayersInDouble raw, double longitude, double timeZone)
         {
             var adjustment = timeZone - (longitude / 15.0);
-            raw.Imsak = raw.Imsak + adjustment;
-            raw.Fajr = raw.Fajr + adjustment;
-            raw.Sunrise = raw.Sunrise + adjustment;
-            raw.Dhuha = raw.Dhuha + adjustment;
-            raw.Dhuhr = raw.Dhuhr + adjustment;
-            raw.Asr = raw.Asr + adjustment;
-            raw.Sunset = raw.Sunset + adjustment;
-            raw.Maghrib = raw.Maghrib + adjustment;
-            raw.Isha = raw.Isha + adjustment;
+            raw.Imsak += adjustment;
+            raw.Fajr += adjustment;
+            raw.Sunrise += adjustment;
+            raw.Dhuha += adjustment;
+            raw.Dhuhr += adjustment;
+            raw.Asr += adjustment;
+            raw.Sunset += adjustment;
+            raw.Maghrib += adjustment;
+            raw.Isha += adjustment;
 
             return raw;
         }
@@ -635,14 +635,14 @@ namespace PrayerTimes.Library.Calculators
         /// </summary>
         private static PrayersInDouble MinuteAdjustAll(PrayersInDouble raw, PrayerCalculationSettings settings)
         {
-            raw.Imsak = raw.Imsak + (settings.ImsakMinutesAdjustment / 60.0);
-            raw.Fajr = raw.Fajr + (settings.FajrMinutesAdjustment / 60.0);
-            raw.Sunrise = raw.Sunrise + (settings.SunriseMinutesAdjustment / 60.0);
-            raw.Dhuha = raw.Dhuha + (settings.DhuhaMinutesAdjustment / 60.0);
-            raw.Dhuhr = raw.Dhuhr + (settings.DhuhrMinutesAdjustment / 60.0);
-            raw.Asr = raw.Asr + (settings.AsrMinutesAdjustment / 60.0);
-            raw.Maghrib = raw.Maghrib + (settings.MaghribMinutesAdjustment / 60.0);
-            raw.Isha = raw.Isha + (settings.IshaMinutesAdjustment / 60.0);
+            raw.Imsak += (settings.ImsakMinutesAdjustment / 60.0);
+            raw.Fajr += (settings.FajrMinutesAdjustment / 60.0);
+            raw.Sunrise += (settings.SunriseMinutesAdjustment / 60.0);
+            raw.Dhuha += (settings.DhuhaMinutesAdjustment / 60.0);
+            raw.Dhuhr += (settings.DhuhrMinutesAdjustment / 60.0);
+            raw.Asr += (settings.AsrMinutesAdjustment / 60.0);
+            raw.Maghrib += (settings.MaghribMinutesAdjustment / 60.0);
+            raw.Isha += (settings.IshaMinutesAdjustment / 60.0);
 
             return raw;
         }
@@ -675,7 +675,7 @@ namespace PrayerTimes.Library.Calculators
             var utc = calculatedTime.InUtc();
             if (utc.Second > 0)
             {
-                calculatedTime = calculatedTime + Duration.FromSeconds(60 - utc.Second);
+                calculatedTime += Duration.FromSeconds(60 - utc.Second);
             }
 
             return calculatedTime;

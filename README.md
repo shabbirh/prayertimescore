@@ -3,6 +3,7 @@
 In His Name, the Most High
 
 ## About This Project
+
 [![NuGet](https://img.shields.io/nuget/v/PrayerTimes.Library.svg?style=flat)](https://www.nuget.org/packages/PrayerTimes.Library/)
 ![dotnet](https://github.com/shabbirh/prayertimescore/actions/workflows/dotnet.yml/badge.svg)
 ![codeql-analysis](https://github.com/shabbirh/prayertimescore/actions/workflows/codeql-analysis.yml/badge.svg)
@@ -258,6 +259,10 @@ I will be setting up a [Discord](https://discordapp.com/) channel, where discuss
 Thanks to the work done by [Zulfahmi Ahmad](https://github.com/zulfahmi93), this code has been significantly improved and the calculation methods for Singapore and Malaysia have been added.
 
 There are also many unit tests that can be used to verify calculations; as well as a Console App that can be used to display the times for prayer.
+
+## Calender Conversion Feature
+
+A set of calender conversion methods and classes has now been added (based of the excellent work by [Milad Shahabfar](https://github.com/shahabfar)'s Persia.NET-Core.  This work was brought into this library, since the [Persia.NET-Core library](https://github.com/shahabfar/Persia-.NET-Core) is purely dotnet core 5, and therefore cannot be used in Xamarin based projects (or projects that don't support dotnet core 5 and need dotnet standard 2+).
 
 ## Disclaimer
 
