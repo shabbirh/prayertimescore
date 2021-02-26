@@ -5,7 +5,6 @@ namespace PrayerTimes.Library.Helpers
 {
     public class PrayerCalculationParameter
     {
-
         /// <summary>
         ///     Create new <see cref="PrayerCalculationParameter" />.
         /// </summary>

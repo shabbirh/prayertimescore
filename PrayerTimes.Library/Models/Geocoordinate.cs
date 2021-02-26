@@ -31,7 +31,5 @@ namespace PrayerTimes.Library.Models
         ///     Gets the altitude of this coordinate.
         /// </summary>
         public double Altitude { get; }
-
-
     }
 }
