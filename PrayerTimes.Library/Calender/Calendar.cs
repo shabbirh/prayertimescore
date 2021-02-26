@@ -141,11 +141,6 @@ namespace prayertimescore.PrayerTimes.Library.Calender
 
         private static bool LeapGregorian(int year) => year % 4 == 0 && !(year % 100 == 0 && year % 400 != 0);
 
-        //private static bool leap_persian(int year)
-        //{
-        //   return ((((((year - ((year > 0) ? 474 : 473)) % 2820) + 474) + 38) * 682) % 2816) < 682;
-        //}
-
         private static int[] JdToPersian(float jd)
         {
             float ycycle;
@@ -210,11 +205,6 @@ namespace prayertimescore.PrayerTimes.Library.Calender
             var res = new[] { year, month, day };
             return res;
         }
-
-        //private static bool leap_Islamic(int year)
-        //{
-        //   return ((year * 11) + 14 % 30) < 11;
-        //}
 
         private static float IslamicToJd(int year, int month, int day)
         {

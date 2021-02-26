@@ -11,8 +11,10 @@ namespace prayertimescore.PrayerTimes.Library.Calender
 
         public bool IsLeapYear => new System.Globalization.HijriCalendar().IsLeapYear(ArrayType[0]);
 
-        private readonly string[] _lunarMonths = { "محرم", "صفر", "ربیع الاول", "ربیع الثانی", "جمادی الاولی", "جمادی الثانیة", "رجب", "شعبان", "رمضان", "شوال", "ذی قعده", "ذی حجّه" };
-        private readonly string[] _lunarWeekDays = { "اسبت", "الاحد", "الاثنین", "اثلاثا", "الاربعا", "الخمیس", "اجمعه" };
+        private readonly string[] _lunarMonths = { "محرم", "صفر", "ربیع الاول", "ربیع الثانی", "جمادی الاولی", "جمادی الثانیة", "رجب", "شعبان", "رمضان", "شوال", "ذی القعده", "ذی الحجّه" };
+
+        private readonly string[] _lunarMonthsEnglish = { "Muharram", "Safar", "Rabi al-Awwal", "Rabi ath-Thani", "Jamadi al-Ula", "Jamadi ath-Thani", "Rajab", "Shabaan", "Shahr Ramadhan", "Shawwal", "Dhul Qada", "Dhul Hijjah" };
+        private readonly string[] _lunarWeekDays = { "السبت", "الاحد", "الاثنین", "الثلاثا", "الاربعا", "الخمیس", "الجمعه" };
         private readonly string[] _weekDays = { "شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "جمعه" };
 
         public new string ToString()
@@ -31,6 +33,10 @@ namespace prayertimescore.PrayerTimes.Library.Calender
         {
             string dateFormat = dateFormatSpecifier switch
             {
+                "english_day" => ArrayType[2].ToString(),
+                "english_month" => _lunarMonthsEnglish[ArrayType[1] - 1],
+                "english_year" => ArrayType[0].ToString(),
+                "english_formatted" => $"{ArrayType[2]} {_lunarMonthsEnglish[ArrayType[1] - 1]} {ArrayType[0]}",
                 "M" => ConvertToArabic(ArrayType[2]) + " " + _lunarMonths[ArrayType[1] - 1] + " " +
                                                 ConvertToArabic(ArrayType[0]),
                 "D" => _weekDays[DayOfWeek] + " " + ConvertToArabic(ArrayType[2]) + " " +
