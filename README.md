@@ -15,7 +15,7 @@ This document briefly describes these times and explains how they can be calcula
 
 ## Definitions
 
-To determine the exact period for each prayer (and also for fasting), we need to determine nine points of time per a day. These times are defined in the following table:
+To determine the exact period for each prayer (and also for fasting), we need to determine ten points of time per a day. These times are defined in the following table:
 
 | Time         | Definition|
 | ------------- |-------------|
