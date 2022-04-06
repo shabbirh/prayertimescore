@@ -13,7 +13,7 @@ namespace PrayerTimes.Console
         private static int _year = 2022;
         private static int _month = 4;
         private static int _day = 6;
-        private static double _timeZone = 1.0;
+        private static double _timeZone = 1.5;
         private static int _lunarHijriOffset = -1;
         private static double _latitude = 51.59273046780983;
         private static double _longitude = -0.38085912984173964;
@@ -107,7 +107,7 @@ namespace PrayerTimes.Console
             System.Console.WriteLine();
             System.Console.WriteLine(
                 "year/month/day: these are integers representing the year (four digits), month (two digits), day (two digits)");
-            System.Console.WriteLine($"timeZoneOffset: this is the timezone offset; for example,{Environment.NewLine}for the UK in BST, it would be 1.0, but during GMT it would be 0.0 and so on.");
+            System.Console.WriteLine($"timeZoneOffset: this is the timezone offset; for example,{Environment.NewLine}for the UK in BST, it would be 1.0, but during GMT it would be 0.0 and so on.{Environment.NewLine}Bear in mind this should NOT be in hours and minutes; but as a true decimal.{Environment.NewLine}So, for example, an offset of +3 hours and 30 minutes, would be +3.50 and NOT +3.30.{Environment.NewLine}bear in mind offsets can be positive or negative, so be sure to provide that also.");
             System.Console.WriteLine($"lunarHijriOffsetDays: this is the number of days (positive or negative){Environment.NewLine}that need to be offset to get the correct Lunar date{Environment.NewLine}(lunar date is generally based on the moon sighting;{Environment.NewLine}sometimes the calculation for a given lunar date is off by 1 or 2{Environment.NewLine}days (either side)");
             System.Console.WriteLine("latitude/longitude/altitude: these are the coordinates of the location you want to get the prayer times for");
             System.Console.WriteLine();
