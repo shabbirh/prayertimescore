@@ -16,7 +16,8 @@ This library provides easy to use methods to calculate these times based on vari
     <PackageTags>prayer, muslim, calculations, namaaz, salaat, hijri, calender, solar, lunar</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <FileVersion>1.0.4.0</FileVersion>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <!-- <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" /> -->
