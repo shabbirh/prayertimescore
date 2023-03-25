@@ -10,7 +10,7 @@ namespace PrayerTimes.Console
 {
     internal static class Program
     {
-        private static int _year = 2022;
+        private static int _year = 2023;
         private static int _month = 5;
         private static int _day = 31;
         private static double _timeZone = 1.0;
