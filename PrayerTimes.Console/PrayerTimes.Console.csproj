@@ -1,12 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\PrayerTimes.Library\PrayerTimes.Library.csproj"/>
+    <ProjectReference Include="..\PrayerTimes.Library\PrayerTimes.Library.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NodaTime" Version="3.0.5"/>
+    <PackageReference Include="NodaTime" Version="3.0.5" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 </Project>
