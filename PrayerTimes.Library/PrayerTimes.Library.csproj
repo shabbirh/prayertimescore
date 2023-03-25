@@ -11,13 +11,14 @@ This library provides easy to use methods to calculate these times based on vari
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/shabbirh/prayertimescore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/shabbirh/prayertimescore</RepositoryUrl>
-    <PackageReleaseNotes>Updated formatters for lunar and solar hijri to show dates in latin script (i.e. in English)</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix to remedy a crash (by way of NaN for times) in rare case when calculating during DST locales and at high altitudes.  The issue is related to the Math.Acos function recieving a value &gt; 1.0 or &lt; -1.0 which causes the function to return a NaN thereby breaking the calculation.  This fix is temporary to prevent a crash; however the times for such high altitudes and during such times (DST primarily) can cause the Imsaak and Fajr times to be off by an hour (approx).  A proper fix is being worked on and will be pushed out in the next update.</PackageReleaseNotes>
     <AssemblyVersion>1.0.4.0</AssemblyVersion>
     <PackageTags>prayer, muslim, calculations, namaaz, salaat, hijri, calender, solar, lunar</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <FileVersion>1.0.5.0</FileVersion>
     <Version>1.0.6</Version>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" /> -->
@@ -28,6 +29,10 @@ This library provides easy to use methods to calculate these times based on vari
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 </Project>
