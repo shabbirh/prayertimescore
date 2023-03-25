@@ -370,3 +370,4 @@ obj/
 coverage-html
 coverage-hits
 coverage.json
+.idea
