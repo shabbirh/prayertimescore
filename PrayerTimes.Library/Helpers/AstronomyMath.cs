@@ -89,10 +89,14 @@ namespace PrayerTimes.Library.Helpers
             var sunDeclination = ComputeSunDeclination(julianDate + timeFraction);
             var midDay = ComputeMidDay(julianDate, timeFraction);
 
-            var solarTime = 0.0666666666666667 *
-                            AngleMath.InverseCosineInDegree((-AngleMath.SineOfDegree(angle) -
-                                                             (AngleMath.SineOfDegree(sunDeclination) * AngleMath.SineOfDegree(latitude))) /
-                                                            (AngleMath.CosineOfDegree(sunDeclination) * AngleMath.CosineOfDegree(latitude)));
+            var inverseCosineInDegree = AngleMath.InverseCosineInDegree((-AngleMath.SineOfDegree(angle) - AngleMath.SineOfDegree(sunDeclination) *
+                                                                         AngleMath.SineOfDegree(latitude)) / (AngleMath.CosineOfDegree(sunDeclination) *
+                                                                         AngleMath.CosineOfDegree(latitude)));
+
+            var solarTime = 0.0666666666666667 * inverseCosineInDegree;
+                            //AngleMath.InverseCosineInDegree((-AngleMath.SineOfDegree(angle) -
+                            //                                 (AngleMath.SineOfDegree(sunDeclination) * AngleMath.SineOfDegree(latitude))) /
+                            //                                (AngleMath.CosineOfDegree(sunDeclination) * AngleMath.CosineOfDegree(latitude)));
 
             return midDay + (direction == Direction.CounterClockwise ? -solarTime : solarTime);
         }

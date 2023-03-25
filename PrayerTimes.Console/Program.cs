@@ -11,13 +11,13 @@ namespace PrayerTimes.Console
     internal static class Program
     {
         private static int _year = 2022;
-        private static int _month = 4;
-        private static int _day = 6;
-        private static double _timeZone = 1.5;
+        private static int _month = 5;
+        private static int _day = 31;
+        private static double _timeZone = 1.0;
         private static int _lunarHijriOffset = -1;
-        private static double _latitude = 51.59273046780983;
-        private static double _longitude = -0.38085912984173964;
-        private static double _altitude = 70.0;
+        private static double _latitude = 52.655386693734208;
+        private static double _longitude = -1.1239285417252036;
+        private static double _altitude = 0.0;
         private static readonly CalculationMethodPreset _calculationMethod = CalculationMethodPreset.IthnaAshari;
         private static void Main(string[] args)
         {
