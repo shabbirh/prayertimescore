@@ -12,11 +12,11 @@ This library provides easy to use methods to calculate these times based on vari
     <PackageProjectUrl>https://github.com/shabbirh/prayertimescore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/shabbirh/prayertimescore</RepositoryUrl>
     <PackageReleaseNotes>Updated formatters for lunar and solar hijri to show dates in latin script (i.e. in English)</PackageReleaseNotes>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
     <PackageTags>prayer, muslim, calculations, namaaz, salaat, hijri, calender, solar, lunar</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <FileVersion>1.0.4.0</FileVersion>
-    <Version>1.0.5</Version>
+    <FileVersion>1.0.5.0</FileVersion>
+    <Version>1.0.6</Version>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
