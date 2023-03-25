@@ -1,5 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\PrayerTimes.Library\PrayerTimes.Library.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -11,5 +17,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/shabbirh/prayertimescore</RepositoryUrl>
+    <PackageReleaseNotes>Prevented crashing of calculator in rare case with high altitudes and at certaint times of the year due to the Math.Acos calculation recieving a value that is either greater than 1.0 or less than -1.0.  This fix is temporary; as it can lead to an hour offset in Imsaak and Fajr times.  A fix is being worked on.</PackageReleaseNotes>
   </PropertyGroup>
 </Project>
