@@ -18,9 +18,14 @@ namespace PrayerTimes.Console
         private static double _latitude = 52.655386693734208;
         private static double _longitude = -1.1239285417252036;
         private static double _altitude = 0.0;
-        private static readonly CalculationMethodPreset _calculationMethod = CalculationMethodPreset.IthnaAshari;
+        private const CalculationMethodPreset CalculationMethod = CalculationMethodPreset.IthnaAshari;
+        private const HighLatitudeAdjustment HighLatitudeAdjustment = Library.Enumerations.HighLatitudeAdjustment.MiddleOfNight;
+
         private static void Main(string[] args)
         {
+            
+
+
             if (args is null)
             {
                 ShowUsage();
@@ -44,10 +49,56 @@ namespace PrayerTimes.Console
                 }
             }
 
+            // spac calculator
+            var spa = new SPACalculator.SPAData
+            {
+                Year = _year,
+                Month = _month,
+                Day = _day,
+                Timezone = _timeZone,
+                Longitude = _longitude,
+                Latitude = _latitude,
+                Function = SPACalculator.CalculationMode.SPA_ALL
+            };
+
+            var result = SPACalculator.SPACalculate(ref spa);
+
+            if (result == 0)
+            {
+                System.Console.WriteLine("Julian Day:    {0}\n", spa.Jd);
+                System.Console.WriteLine("L:             {0} degrees\n", spa.L);
+                System.Console.WriteLine("B:             {0} degrees\n", spa.B);
+                System.Console.WriteLine("R:             {0} AU\n", spa.R);
+                System.Console.WriteLine("H:             {0} degrees\n", spa.H);
+                System.Console.WriteLine("Delta Psi:     {0} degrees\n", spa.DelPsi);
+                System.Console.WriteLine("Delta Epsilon: {0} degrees\n", spa.DelEpsilon);
+                System.Console.WriteLine("Epsilon:       {0} degrees\n", spa.Epsilon);
+                System.Console.WriteLine("Zenith:        {0} degrees\n", spa.Zenith);
+                System.Console.WriteLine("Azimuth:       {0} degrees\n", spa.Azimuth);
+                System.Console.WriteLine("Incidence:     {0} degrees\n", spa.Incidence);
+
+                var min = 60.0 * (spa.Sunrise - (int)(spa.Sunrise));
+                var sec = 60.0 * (min - (int)min);
+                System.Console.WriteLine("Sunrise:       {0}:{1}:{2} Local Time\n", (int)(spa.Sunrise), (int)min, (int)sec);
+
+                min = 60.0 * (spa.Sunset - (int)(spa.Sunset));
+                sec = 60.0 * (min - (int)min);
+                System.Console.WriteLine("Sunset:        {0}:{1}:{2} Local Time\n", (int)(spa.Sunset), (int)min, (int)sec);
+
+            }
+            else
+            {
+                System.Console.WriteLine("SPA Error Code: {0}", result);
+            }
+
+            System.Console.ReadKey();
+
+
             var when = Instant.FromUtc(_year, _month, _day, 0, 0);
 
             var settings = new PrayerCalculationSettings();
-            settings.CalculationMethod.SetCalculationMethodPreset(when, _calculationMethod);
+            settings.CalculationMethod.SetCalculationMethodPreset(when, CalculationMethod);
+            settings.HighLatitudeAdjustment = HighLatitudeAdjustment;
             var geo = new Geocoordinate(_latitude, _longitude, _altitude);
 
             var prayer = Prayers.On(when, settings, geo, _timeZone);

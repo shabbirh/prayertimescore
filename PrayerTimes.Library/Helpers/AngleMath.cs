@@ -80,7 +80,8 @@ namespace PrayerTimes.Library.Helpers
         /// </returns>
         internal static double InverseCosineInDegree(double cosineValue)
         {
-            return cosineValue > 1.0 ? RadianToDegree(Math.Acos(1)) : RadianToDegree(cosineValue < -1.0 ? Math.Acos(-1) : Math.Acos(cosineValue));
+            //return cosineValue > 1.0 ? RadianToDegree(Math.Acos(1)) : RadianToDegree(cosineValue < -1.0 ? Math.Acos(-1) : Math.Acos(cosineValue));
+            return RadianToDegree(Math.Acos(cosineValue));
         }
 
         /// <summary>

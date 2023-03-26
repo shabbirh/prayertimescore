@@ -54,33 +54,100 @@ namespace PrayerTimes.Library.Calculators
             var day = utc.Day;
             var local = new LocalDate(year, month, day);
             var newUtc = new ZonedDateTime(local.AtMidnight(), DateTimeZone.Utc, Offset.Zero);
+            
+            try
+            {
+                var jd = newUtc.ToInstant().ToJulianDate() - (coordinate.Longitude / 360.0);
+                var raw = ComputeRaw(jd, settings, coordinate.Latitude, coordinate.Altitude);
+                var afterAdjustment = AdjustTime(raw, settings, coordinate.Longitude, timeZone);
 
-            var jd = newUtc.ToInstant().ToJulianDate() - (coordinate.Longitude / 360.0);
-            var raw = ComputeRaw(jd, settings, coordinate.Latitude, coordinate.Altitude);
-            var afterAdjustment = AdjustTime(raw, settings, coordinate.Longitude, timeZone);
+                // Calculate midnight.
+                var fajr = afterAdjustment.Fajr;
+                var sunrise = afterAdjustment.Sunrise;
+                var sunset = afterAdjustment.Sunset;
+                afterAdjustment.Midnight = ComputeMidnightTime(settings.CalculationMethod.MidnightMethod, fajr, sunrise, sunset);
 
-            // Calculate midnight.
-            var fajr = afterAdjustment.Fajr;
-            var sunrise = afterAdjustment.Sunrise;
-            var sunset = afterAdjustment.Sunset;
-            afterAdjustment.Midnight = ComputeMidnightTime(settings.CalculationMethod.MidnightMethod, fajr, sunrise, sunset);
+                // Convert.
+                var converted = ConvertFromFloatingPointFormat(afterAdjustment, year, month, day, timeZone);
 
-            // Convert.
-            var converted = ConvertFromFloatingPointFormat(afterAdjustment, year, month, day, timeZone);
+                // Round.
+                var rounded = new Prayers(RoundPrayerTime(converted.Imsak),
+                    RoundPrayerTime(converted.Fajr),
+                    RoundPrayerTime(converted.Sunrise),
+                    RoundPrayerTime(converted.Dhuha),
+                    RoundPrayerTime(converted.Dhuhr),
+                    RoundPrayerTime(converted.Asr),
+                    RoundPrayerTime(converted.Sunset),
+                    RoundPrayerTime(converted.Maghrib),
+                    RoundPrayerTime(converted.Isha),
+                    RoundPrayerTime(converted.Midnight));
 
-            // Round.
-            var rounded = new Prayers(RoundPrayerTime(converted.Imsak),
-                                      RoundPrayerTime(converted.Fajr),
-                                      RoundPrayerTime(converted.Sunrise),
-                                      RoundPrayerTime(converted.Dhuha),
-                                      RoundPrayerTime(converted.Dhuhr),
-                                      RoundPrayerTime(converted.Asr),
-                                      RoundPrayerTime(converted.Sunset),
-                                      RoundPrayerTime(converted.Maghrib),
-                                      RoundPrayerTime(converted.Isha),
-                                      RoundPrayerTime(converted.Midnight));
+                return rounded;
+            }
+            catch (System.Exception e)
+            {
+                //perform fallback calculation
+                var fbCalc = new FallBackPrayerCalculator();
+                switch (settings!.CalculationMethod.Preset)
+                {
+                    case CalculationMethodPreset.IthnaAshari:
+                        fbCalc.setCalcMethod (0);
+                        break;
+                    case CalculationMethodPreset.UniversityOfIslamicSciencesKarachi:
+                        fbCalc.setCalcMethod (1);
+                        break;
+                    case CalculationMethodPreset.IslamicSocietyOfNorthAmerica:
+                        fbCalc.setCalcMethod (2);
+                        break;
+                    case CalculationMethodPreset.MuslimWorldLeague:
+                        fbCalc.setCalcMethod (3);
+                        break;
+                    case CalculationMethodPreset.UmmAlQuraUniversity:
+                        fbCalc.setCalcMethod (4);
+                        break;
+                    case CalculationMethodPreset.EgyptianGeneralAuthorityOfSurvey:
+                        fbCalc.setCalcMethod (5);
+                        break;
+                    case CalculationMethodPreset.InstituteOfGeophysicsUniversityOfTehran:
+                        fbCalc.setCalcMethod (7);
+                        break;
+                    case CalculationMethodPreset.UnionDesOrganisationsIslamiquesDeFrance:
+                        break;
+                    case CalculationMethodPreset.MajlisUgamaIslamSingapura:
+                    case CalculationMethodPreset.DepartmentOfIslamicAdvancementOfMalaysia:
+                    case CalculationMethodPreset.Custom:
+                        fbCalc.setCalcMethod (6);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
 
-            return rounded;
+                switch (settings.JuristicMethod.GetJuristicMethodPreset())
+                {
+                    case JuristicMethodPreset.Standard:
+                        fbCalc.setAsrMethod (0);
+                        break;
+                    case JuristicMethodPreset.Hanafi:
+                        fbCalc.setAsrMethod (0);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+                
+                DateTime cc = DateTime.UtcNow;
+                int y = 0 , m = 0 , d = 0 , tz = 0;
+                y = cc.Year;
+                m = cc.Month;
+                d = cc.Day;
+                
+
+                var fallBackTimes = fbCalc.getDatePrayerTimes( year , month , day , coordinate.Latitude , coordinate.Longitude , 0 );
+
+                // todo
+                // need to adapt timezone for fallback values
+
+                throw new NotImplementedException();
+            }
         }
 
         /// <summary>
@@ -403,10 +470,14 @@ namespace PrayerTimes.Library.Calculators
         private static double ComputeImsakTime(double jd, double imsakParameterValue, double latitude)
         {
             var dayFraction = AstronomyMath.GetDayFraction(ImsakDefaultTime);
-            var imsakTime = AstronomyMath.ComputeSolarTime(jd, dayFraction, imsakParameterValue, latitude, Direction.CounterClockwise);
 
+            var imsakTime = AstronomyMath.ComputeSolarTime(jd, dayFraction, imsakParameterValue, latitude, Direction.CounterClockwise);
+            
             return imsakTime;
         }
+
+
+
 
         /// <summary>
         /// Calculate prayer time for fajr.
