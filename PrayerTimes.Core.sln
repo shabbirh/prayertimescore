@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrayerTimes.Library", "PrayerTimes.Library\PrayerTimes.Library.csproj", "{66ABA9F8-2DAB-4BB1-886A-D2D55D91F1D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrayerTimes.Library", "PrayerTimes.Library\PrayerTimes.Library.csproj", "{66ABA9F8-2DAB-4BB1-886A-D2D55D91F1D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrayerTimes.Console", "PrayerTimes.Console\PrayerTimes.Console.csproj", "{F3181C25-DB70-414F-BE52-7ADBB320FD75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrayerTimes.Console", "PrayerTimes.Console\PrayerTimes.Console.csproj", "{F3181C25-DB70-414F-BE52-7ADBB320FD75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrayerTimes.Tests", "PrayerTimes.Tests\PrayerTimes.Tests.csproj", "{72FBAB4D-9E83-4F68-9A80-8A975454A5FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrayerTimes.Tests", "PrayerTimes.Tests\PrayerTimes.Tests.csproj", "{72FBAB4D-9E83-4F68-9A80-8A975454A5FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{66ABA9F8-2DAB-4BB1-886A-D2D55D91F1D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,5 +55,11 @@ Global
 		{72FBAB4D-9E83-4F68-9A80-8A975454A5FD}.Release|x64.Build.0 = Release|Any CPU
 		{72FBAB4D-9E83-4F68-9A80-8A975454A5FD}.Release|x86.ActiveCfg = Release|Any CPU
 		{72FBAB4D-9E83-4F68-9A80-8A975454A5FD}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DAADF47-1B1C-427D-806B-EE15A79D0573}
 	EndGlobalSection
 EndGlobal
