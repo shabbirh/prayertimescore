@@ -38,11 +38,11 @@ There are two astronomical measures that are essential for computing prayer time
 
 The equation of time is the difference between time as read from a sundial and a clock. It results from an apparent irregular movement of the Sun caused by a combination of the obliquity of the Earth's rotation axis and the eccentricity of its orbit. The sundial can be ahead (fast) by as much as 16min 33s (around November 3) or fall behind by as much as 14min 6s (around February 12), as shown in the following graph:
 
-![alt text](https://www.namaaz.net/img/doc/equation-of-time.png "The Equation of Time")
+![alt text](https://raw.githubusercontent.com/shabbirh/prayertimescore/master/DocumentationAssets/equation-of-time.png "The Equation of Time")
 
 The declination of the Sun is the angle between the rays of the sun and the plane of the Earth's equator. The declination of the Sun changes continuously throughout the year. This is a consequence of the Earth's tilt (that is the difference in its rotational and revolutionary axes).
 
-![alt text](https://www.namaaz.net/img/doc/declination-of-the-sun.png "The Declination of Sun")
+![alt text](https://raw.githubusercontent.com/shabbirh/prayertimescore/master/DocumentationAssets/declination-of-the-sun.png "The Declination of Sun")
 
 The above two astronomical measures can be obtained accurately from The Star Almanac, or can be calculated approximately. The following algorithm from [U.S. Naval Observatory](http://aa.usno.navy.mil/faq/docs/SunApprox.php "Approximate Solar Coordinates from the US Naval Observatory") computes the Sun's angular coordinates to an accuracy of about 1 arcminute within two centuries of 2000.
 
@@ -112,7 +112,7 @@ There are three definitions for the Dhuhr time as described above. According to 
 
 The time difference between the mid-day and the time at which sun reaches an angle α below the horizon can be computed using the following formula:
 
-![alt text](https://www.namaaz.net/img/doc/twilight-formula.png "Twilight/Sunset calculation formula")
+![alt text](https://raw.githubusercontent.com/shabbirh/prayertimescore/master/DocumentationAssets/twilight-formula.png "Twilight/Sunset calculation formula")
 
 Astronomical sunrise and sunset occurs at α=0.
 
@@ -167,7 +167,7 @@ The dominant opinion in the Hanafi school says that Asr begins when the length o
 
 The following formula computes the time difference between the mid-day and the time at which the object's shadow equals t times the length of the object itself plus the length of that object's shadow at noon:
 
-![alt text](https://www.namaaz.net/img/doc/asr-formula.png "Asr calculation formula")
+![alt text](https://raw.githubusercontent.com/shabbirh/prayertimescore/master/DocumentationAssets/asr-formula.png "Asr calculation formula")
 
 Therefore, in the first four schools of thought the formula would be:
 
